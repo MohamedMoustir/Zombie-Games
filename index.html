@@ -1,15 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/style.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+  <title>Document</title>
 </head>
+<style>
+  #zombie {
+    position: absolute;
+    z-index: 9999;
+    top: 50px;
+    left: 50px;
+    cursor: pointer;
+  }
+</style>
+
 <body>
-    <header style="background-image: url(./imgs/zombi_bg.jpg);">
-<img src="./imgs/zombie.png" alt="" srcset="" width="100px" height="100px">
-    </header>
-    <script src="./js/styel.js"></script>
+
+
+  <header style="background-image: url(./imgs/zombi_bg.jpg); " onclick="done('notzombie')">
+
+  
+    <div class="container mx-auto p-4 max-w-md">
+      <div class="bg-gray-800 rounded-xl shadow-lg p-6">
+        <div class="flex space-x-4 mb-4">
+          <!-- Player Action Button -->
+          <button id="playerButton" class="w-1/2 py-3 bg-green-500 hover:bg-green-600 rounded-lg shadow-md text-white font-bold transition duration-200">
+            <p id="playerTimer" class="text-white font-bold">0</p>Player Action
+          </button>
+    
+          <!-- Zombie Action Button -->
+          <button id="zombieButton" class="w-1/2 py-3 bg-red-500 hover:bg-red-600 rounded-lg shadow-md text-white font-bold transition duration-200">
+            <p id="zombieTimer" class="text-white font-bold">0</p>Zombie Action
+          </button>
+        </div>
+        <button id="timerButton" class="w-full py-3 bg-blue-500 text-white font-bold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200">
+          30 Time
+        </button>
+      </div>
+    </div>
+
+    <audio id="audio" class="w-full max-w-md" autoplay>
+      <source src="./imgs/jump-scare_7-28634.mp3" type="audio/wav">
+    </audio>
+
+
+  </header>
+  <img src="./imgs/zombie.png" alt="" srcset="" width="100px" height="100px" onclick="done('zombie')" id="zombie">
+  <div>
+
+  </div>
+ 
+
+<script>
+   let time = 30;
+ 
+    setInterval(() => { 
+      if (time > 0) {
+        time--; 
+        document.getElementById("timerButton").textContent = `${time} Time`; 
+      }
+    }, 1000);
+  
+
+</script>
+  <script src="./js/styel.js"></script>
 </body>
+
 </html>

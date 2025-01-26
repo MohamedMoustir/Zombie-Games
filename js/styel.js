@@ -1,7 +1,5 @@
 
-
 let img = document.querySelector("img")
-
 
 let clientWidth = document.body.clientWidth;
 let clientheight = document.body.clientHeight;
@@ -22,6 +20,36 @@ function right() {
 
 
 setInterval(() => {
-    right()
-    left()
-}, 1000)
+    right();
+    left();
+}, 10000)
+
+
+
+let a = 0;
+let b = 0;
+
+function done(value) {
+  if (value == 'zombie') {
+    a++; 
+    console.log('a:', a); 
+  }else if ('notzombie'){
+      b++; 
+       console.log('b:', b); 
+  }
+ 
+ 
+}
+
+done();
+
+window.onload = function() {
+  if (audio.paused) {
+    audio.play();  
+  }
+}
+
+
+
+
+
